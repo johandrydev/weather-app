@@ -19,6 +19,7 @@ const users = [
 const Avatares = () => {
   return (
     <div className="avatares mb-2">
+      <span><i className="fas fa-plus"></i>Top Reviews</span>
       {users.map(({ id, img }) => (
         <Card key={id} border="border-xsmall" cssClass="avatar">
           <img src={img} alt="" />

@@ -3,5 +3,6 @@
     "urlImgs" : "http://api.openweathermap.org/img/w/",
     "id": "f4b5e95bc135b5f473fd1009db90d763",
     "mainCity": "bogota",
-    "secondaryCity": "paris"
+    "secondaryCity": "paris",
+    "optionalCity": "lyon"
 }

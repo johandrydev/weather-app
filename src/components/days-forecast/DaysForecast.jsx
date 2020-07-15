@@ -9,20 +9,25 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 const DaysForecast = () => {
   const [showDays, updateDays] = useState([]);
 
-  const handleRequest = () => {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        const resp = JSON.parse(xhttp.responseText);
-        updateDays([
-          resp.list[0],
-          resp.list[10],
-          resp.list[20],
-        ])
+  const request = (url) => {
+    return new Promise((resolve) => {
+      const request = new XMLHttpRequest();
+      request.open("GET", url);
+      request.onload = function () {
+        resolve(JSON.parse(request.responseText));
       }
-    };
-    xhttp.open("GET", `${data.urlApi}forecast?q=${data.mainCity}&units=metric&appid=${data.id}`, true);
-    xhttp.send();
+      request.send();
+    });
+  }
+
+  const handleRequest = async () => {
+    const urls = `${data.urlApi}forecast?q=${data.mainCity}&units=metric&appid=${data.id}`;
+    const resp = await request(urls);
+    updateDays([
+      resp.list[0],
+      resp.list[10],
+      resp.list[20],
+    ])
   }
 
   useEffect(() => {
@@ -31,16 +36,16 @@ const DaysForecast = () => {
 
   return (
     <>
-      {showDays.map(({weather, dt_txt, main}, index) => (
-        <Card key={index} cssClass="days mb-1">
+      {showDays.map(({ weather, dt_txt, main }, index) => (
+        <Card key={index} cssClass="days shadow mb-1">
           <div className="weathers">
-            <img src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} alt="" />
+            <img src={`${data.urlImgs}${weather[0].icon}.png`} alt="" />
             <div>
               <span>{days[new Date(dt_txt).getDay()]}</span>
               <span className="weather">{weather[0].description}</span>
             </div>
           </div>
-          <Card bg="bg-primary" cssClass="metric">
+          <Card bg={index === 0 ? 'bg-primary' : 'bg-secondary'} cssClass="metric">
             {Math.round(main.temp_min)}°/{Math.round(main.temp_max)}°
           </Card>
         </Card>
