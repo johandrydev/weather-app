@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
+/* vars SASS */
+$main-px: 30px;
+$xsmall-px: 5px;
+$small-px: 15px;
+$large-px: 40px;
+$bg-img: url(https://images.pexels.com/photos/258160/pexels-photo-258160.jpeg);
+
+$primary-color: #826fec;
+$secondary-color: #31338a;
+
+/* vars CSS */
+:root {
+    --main-px: 30px;
+    --xsmall-px: 5px;
+    --small-px: 15px;
+    --large-px: 40px;
+    --primary-color: #826fec;
+    --secondary-color: #31338a;
+}
+
+body {
+    font-family: "Verdana";
+    min-height: 100vh;
+    margin: 0;
+    background: #eee;
+}
+
+h3 {
+    font-weight: 100;
+}
+
+h5 {
+    margin: 0;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.bg-primary {
+    background: $primary-color;
+}
+
+.bg-secondary {
+    background: $secondary-color;
+}
+
+.bg-white {
+    background: white;
+}
+
+.border-xsmall {
+    border-radius: $xsmall-px;
+}
+
+.border-small {
+    border-radius: $small-px;
+}
+
+.border-medium {
+    border-radius: $main-px;
+}
+
+.container {
+    display: flow-root;
+    box-sizing: content-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $small-px;
+    padding-right: $small-px;
+}
+
+.header {
+    width: 100%;
+    height: 280px;
+    margin: 2rem 0;
+    border-radius: $main-px;
+    background: $bg-img;
+    background-size: cover;
+    .title {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: $primary-color;
+        margin: 2rem;
+        i {
+            font-size: 20px;
+            margin: 0 5px 0 0;
+        }
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    .cards-main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    .avatares {
+        margin: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .places {
+        margin-top: 1.8rem;
+        height: 240px;
+    }
+}
+
+.locations {
+    margin: 0 2rem 0 3rem;
+}
+
+.card {
+    width: 100%;
+    &.days {
+        height: 70px;
+        display: grid;
+        grid-template-columns: 1fr 70px;
+    }
+    img {
+        width: 100%;
+        border-radius: $xsmall-px;
+    }
+    .weathers {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        align-items: center;
+        img {
+            margin: auto;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: smaller;
+            text-transform: capitalize;
+        }
+        .weather {
+            color: #a1a1a1;
+        }
+    }
+    .metric {
+        font-family: "Bebas Neue";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: large;
+        color: white;
+    }
+    &.place {
+        height: 240px;
+        background: url(https://images.pexels.com/photos/4054998/pexels-photo-4054998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+        background-position: center;
+        background-size: cover;
+    }
+    .address {
+        display: flex;
+        padding: 1rem;
+        color: white;
+        i {
+            margin: 0 10px;
+        }
+    }
+    &.avatar {
+        width: $main-px;
+        height: $main-px;
+        margin: 0 0 0 0.1rem;
+        &.plus {
+            background: var(--primary-color);
+            color: white;
+            opacity: 0.6;
+            font-size: small;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                font-size: xx-small;
+            }
+        }
+    }
+    &.places {
+        height: 70px;
+        border-radius: 30px;
+        background: url(https://images.pexels.com/photos/2722627/pexels-photo-2722627.png?auto=compress&cs=tinysrgb&dpr=1&w=500);
+        background-size: cover;
+        background-position: center;
+        &.lg {
+            background: url(https://images.pexels.com/photos/3989816/pexels-photo-3989816.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 140px;
+            .btn {
+                position: absolute;
+                height: 100%;
+                color: white;
+                width: 70px;
+                right: 0;
+                top: 0;
+                border-radius: 29px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                    background: #826feca6;
+                }
+            }
+        }
+    }
+    &.location {
+        height: 100px;
+    }
+    .card-content {
+        height: 70%;
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        border-radius: 15px 15px 0px 0;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .container {
+        padding-left: $large-px;
+        padding-right: $large-px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .container {
+        padding-left: $main-px;
+        padding-right: $main-px;
+    }
+}
