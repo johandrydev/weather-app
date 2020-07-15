@@ -6,6 +6,10 @@ import data from '../../data.json';
 import Card from '../card';
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+/**
+ * DaysForecast component shows the weather of the next days
+ */
 const DaysForecast = () => {
   const [showDays, updateDays] = useState([]);
 
@@ -32,6 +36,7 @@ const DaysForecast = () => {
 
   useEffect(() => {
     handleRequest();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -53,5 +58,4 @@ const DaysForecast = () => {
     </>
   );
 };
-
 export default DaysForecast;

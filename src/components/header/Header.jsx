@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import data from '../../data.json';
 
+/**
+ * Header component show current weather
+ * @param {*} props
+ */
 const Header = ({ weather }) => {
-  console.log(weather);
   return (
     <>
       <div className="container-temp">
@@ -27,5 +31,7 @@ const Header = ({ weather }) => {
     </>
   );
 };
-
+Header.propTypes = {
+  weather: PropTypes.object,
+}
 export default Header;

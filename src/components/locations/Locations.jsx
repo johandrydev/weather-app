@@ -5,6 +5,9 @@ import { useState } from 'react';
 // My components
 import Card from '../card';
 
+/**
+ * Locations component
+ */
 const Locations = () => {
   const [location, updateLocation] = useState([]);
 
@@ -37,6 +40,7 @@ const Locations = () => {
 
   useEffect(() => {
     handleRequest();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -67,5 +71,4 @@ const Locations = () => {
     </div>
   );
 };
-
 export default Locations;

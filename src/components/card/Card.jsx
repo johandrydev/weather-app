@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Card Component
@@ -17,5 +18,9 @@ const Card = ({
     </div>
   );
 };
-
+Card.propTypes = {
+  bg: PropTypes.string,
+  border: PropTypes.string,
+  cssClass: PropTypes.string
+}
 export default Card;

@@ -9,6 +9,9 @@ import Card from './components/card';
 import Avatares from './components/avatares';
 import Locations from './components/locations';
 
+/**
+ * App main component
+ */
 const App = () => {
   const [weather, updateWheater] = useState({});
 
@@ -28,9 +31,10 @@ const App = () => {
     const resp = await request(urls);
     updateWheater(resp);
   }
-
+  
   useEffect(() => {
     handleRequest();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -87,5 +91,4 @@ const App = () => {
     </div>
   );
 };
-
 export default App;

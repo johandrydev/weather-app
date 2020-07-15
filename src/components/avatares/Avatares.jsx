@@ -16,6 +16,9 @@ const users = [
   },
 ]
 
+/**
+ * Avatares Component
+ */
 const Avatares = () => {
   return (
     <div className="avatares mb-2">
@@ -31,5 +34,4 @@ const Avatares = () => {
     </div>
   );
 };
-
 export default Avatares;
